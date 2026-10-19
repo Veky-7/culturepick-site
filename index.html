@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>컬처픽 — 우리 동네 강좌·축제를 지도에서</title>
+<meta name="description" content="컬처픽은 주민센터·도서관·체육센터·문화센터가 공개한 강좌와 전국 축제를 지도 한 장에 모아 보여 주는 앱입니다. 신청과 결제는 각 기관 누리집에서 합니다.">
+<meta property="og:title" content="컬처픽 — 우리 동네 강좌·축제를 지도에서">
+<meta property="og:description" content="공공·도서관·문화센터 강좌와 전국 축제를 지도에서 한 번에 찾는 앱">
+<meta property="og:image" content="https://culturepick.co.kr/img/icon.png">
+<link rel="icon" href="img/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;600;700&display=swap">
+<style>
+/* 컬처픽 소개 — 앱과 같은 옷(보라 하나 · 흰 바탕 · IBM Plex Sans KR) */
+:root{--purple:#7a2cff;--deep:#5a1fd1;--navy:#161b66;--soft:#f3eeff;--ink:#1c1830;--sub:#6d6880;--line:#ece9f2;--page:#ffffff;--card:#f7f6fa;
+  --f:"IBM Plex Sans KR","Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif}
+@media (prefers-color-scheme:dark){:root{--soft:#251a3f;--ink:#eeeaf7;--sub:#a8a2bb;--line:#2b2640;--page:#14111d;--card:#1d1929;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--ink);font:16px/1.7 var(--f);-webkit-font-smoothing:antialiased}
+a{color:var(--purple)} img{max-width:100%;display:block}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left));padding-right:max(18px,env(safe-area-inset-right))}
+header{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--page) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;gap:12px;height:60px}
+header .brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:18px;color:var(--ink);text-decoration:none}
+header .brand img{width:32px;height:32px;border-radius:9px}
+header nav{margin-left:auto;display:flex;gap:16px;font-size:14px}
+header nav a{color:var(--sub);text-decoration:none} header nav a:hover{color:var(--purple)}
+@media (max-width:640px){header nav{display:none}}
+.hero{padding-block:56px 40px;display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
+.kicker{display:inline-block;font-size:13px;font-weight:700;color:var(--deep);background:var(--soft);padding:5px 11px;border-radius:999px}
+h1{font-size:clamp(30px,5vw,46px);line-height:1.22;margin:14px 0 14px;letter-spacing:-.02em;text-wrap:balance}
+h1 em{font-style:normal;color:var(--purple)}
+.lead{font-size:18px;color:var(--sub);margin:0 0 22px;max-width:34em}
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;list-style:none}
+.facts li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:9px 13px;font-size:14px}
+.facts b{color:var(--purple);font-variant-numeric:tabular-nums}
+.status{margin-top:18px;font-size:14px;color:var(--sub)}
+.phone{border-radius:28px;overflow:hidden;border:8px solid #1c1830;box-shadow:0 18px 40px rgba(28,24,48,.18);max-width:300px;margin-inline:auto;background:#fff}
+@media (max-width:760px){.hero{grid-template-columns:1fr;padding-block:36px 24px}}
+section{padding-block:44px;border-top:1px solid var(--line)}
+h2{font-size:clamp(24px,3.4vw,30px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{color:var(--sub);margin:0 0 26px;max-width:40em}
+.menus{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media (max-width:860px){.menus{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.menus{grid-template-columns:1fr}}
+.menu{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:12px}
+.menu img{border-radius:14px;border:1px solid var(--line);aspect-ratio:9/16;object-fit:cover;object-position:top;width:100%}
+.menu h3{margin:0;font-size:17px} .menu p{margin:0;font-size:14.5px;color:var(--sub)}
+.menu .n{font-size:12px;font-weight:700;color:var(--purple)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{width:34%;color:var(--sub);font-weight:600}
+.shot{border-radius:14px;border:1px solid var(--line);overflow:hidden;background:#fff}
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.note{background:var(--soft);border-radius:14px;padding:14px 16px;font-size:14.5px}
+ul.plain{margin:0;padding-left:20px} ul.plain li{margin:6px 0}
+footer{border-top:1px solid var(--line);padding-block:30px 44px;color:var(--sub);font-size:14px}
+footer .links{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:10px}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="brand" href="#"><img src="img/icon.png" alt="">컬처픽</a>
+  <nav><a href="#menus">화면 둘러보기</a><a href="#login">로그인과 개인정보</a><a href="#rules">운영 원칙</a><a href="#contact">문의</a></nav>
+</div></header>
+
+<main>
+<div class="wrap hero">
+  <div>
+    <span class="kicker">강좌·축제 지도 앱</span>
+    <h1>우리 동네 <em>강좌와 축제</em>를<br>지도 한 장에서</h1>
+    <p class="lead">주민센터·평생학습관·체육센터·도서관, 백화점과 마트 문화센터가 공개한 강좌, 그리고 전국 축제를 매일 모아 지도에 보여 드려요. 마음에 드는 강좌는 찜해 두고, 접수 날짜가 오면 알림을 받아요.</p>
+    <ul class="facts">
+      <li>전국 강좌 <b>5만 개</b> 넘게</li>
+      <li>강좌 여는 곳 <b>4,899</b>곳</li>
+      <li>진행 중·예정 축제 <b>171</b>개</li>
+      <li>매일 새벽 새로 모음</li>
+    </ul>
+    <p class="status">2026년 10월 기준 숫자예요. 안드로이드 앱은 구글 플레이 비공개 시험을 준비하고 있고, 아이폰 앱도 함께 만들고 있어요.</p>
+  </div>
+  <div class="phone"><img src="img/지도.jpg" alt="컬처픽 지도 화면: 동네 강좌가 말풍선으로 보인다" width="540" height="960"></div>
+</div>
+
+<section id="what"><div class="wrap">
+  <h2>컬처픽은 이런 서비스예요</h2>
+  <p class="sub">흩어져 있는 공공·민간 강좌 정보를 한곳에서 찾게 해 주는 <b>정보 안내 앱</b>이에요. 신청과 결제는 컬처픽이 하지 않고, 각 기관 누리집으로 연결해 드려요.</p>
+  <div class="two">
+    <table>
+      <tr><th>서비스 종류</th><td>강좌·문화행사 정보 검색과 지도 안내(무료)</td></tr>
+      <tr><th>보여 주는 정보</th><td>기관이 누구나 볼 수 있게 공개한 강좌 목록(강좌 이름·대상·요일·시간·수강료·접수 기간·남은 자리), 한국관광공사 축제 정보</td></tr>
+      <tr><th>신청·결제</th><td>하지 않아요. [신청하러 가기]를 누르면 그 기관 누리집이 열려요</td></tr>
+      <tr><th>회원 가입</th><td>없어도 모든 기능을 쓸 수 있어요. 로그인은 찜·알림을 폰을 바꿔도 이어 쓰고 싶을 때만 골라서 해요</td></tr>
+      <tr><th>돈 버는 방법</th><td>앱 화면 아래 배너 광고(구글 애드몹). 유료 결제·사행성 기능은 없어요</td></tr>
+    </table>
+    <div class="note"><b>이런 분께 필요해요</b>
+      <ul class="plain">
+        <li>퇴근 후 다닐 요가·수영 강좌를 집 근처에서 찾는 직장인</li>
+        <li>아이와 갈 만한 주말 체험·그림책 강좌를 찾는 부모</li>
+        <li>부모님 댁 근처 시니어 강좌를 대신 찾아 드리는 자녀</li>
+        <li>이번 주말 가까운 축제를 찾는 분</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section id="menus"><div class="wrap">
+  <h2>메뉴별 화면</h2>
+  <p class="sub">앱 아래쪽에 <b>지도 · 축제 · 찜 · 내 정보</b> 네 개 메뉴가 있어요. 실제 앱 화면이에요.</p>
+  <div class="menus">
+    <article class="menu"><span class="n">지도</span><img src="img/지도.jpg" alt="지도 화면" loading="lazy"><h3>지도에서 찾기</h3><p>지금 있는 곳 주변의 강좌 여는 곳이 말풍선으로 보여요. 숫자는 지금 신청할 수 있는 강좌 수예요. 위쪽 칸으로 접수중·문화센터·전시·도서관·축제를 골라 볼 수 있어요.</p></article>
+    <article class="menu"><span class="n">지도 › 장소</span><img src="img/센터.jpg" alt="센터 강좌 목록 화면" loading="lazy"><h3>장소별 강좌 목록</h3><p>말풍선을 누르면 그곳 강좌가 지금 신청 가능 → 곧 접수 → 진행 중 순서로 나와요. 전화·길찾기·기관 누리집 단추가 있어요.</p></article>
+    <article class="menu"><span class="n">지도 › 강좌</span><img src="img/강좌상세.jpg" alt="강좌 상세 화면" loading="lazy"><h3>강좌 자세히</h3><p>대상·요일·시간·수강료·접수 기간·남은 자리와 자료 출처를 보여 줘요. [신청하러 가기]는 기관 신청 화면으로 넘어가요.</p></article>
+    <article class="menu"><span class="n">지도 › 상황 칸</span><img src="img/아이와함께.jpg" alt="아이와 함께 강좌 화면" loading="lazy"><h3>상황별로 고르기</h3><p>이번 주말 · 아이와 함께 · 퇴근 후 · 시니어처럼 상황에 맞는 강좌만 골라 보여 줘요.</p></article>
+    <article class="menu"><span class="n">축제</span><img src="img/축제.jpg" alt="축제 목록 화면" loading="lazy"><h3>전국 축제</h3><p>진행 중·이번 주말·무료 축제를 날짜 순이나 가까운 순으로 볼 수 있어요. 끝난 축제는 저절로 빠져요.</p></article>
+    <article class="menu"><span class="n">찜</span><img src="img/찜.jpg" alt="찜 화면" loading="lazy"><h3>찜과 접수일 알림</h3><p>하트를 누른 강좌·축제가 모여요. 접수 알림을 켜면 접수 전날 저녁 8시와 접수 30분쯤 전에 알려 드려요. 가입 없이 폰 안에 저장돼요.</p></article>
+  </div>
+</div></section>
+
+<section id="login"><div class="wrap">
+  <h2>로그인과 개인정보</h2>
+  <p class="sub">로그인은 <b>골라서</b> 하는 기능이에요. 로그인하지 않아도 지도·검색·찜·알림을 모두 쓸 수 있어요.</p>
+  <div class="two">
+    <div>
+      <table>
+        <tr><th>로그인 방법</th><td>카카오 로그인, 네이버 로그인(내 정보 메뉴)</td></tr>
+        <tr><th>로그인하는 이유</th><td>찜·접수일 알림·부모님 동네를 계정에 저장해서, 폰을 바꾸거나 앱을 다시 깔아도 이어 쓰기 위해서예요</td></tr>
+        <tr><th>네이버에서 받는 정보</th><td><b>회원 식별 번호와 별명</b>만 받아요. 이름·전화번호·이메일·생년월일은 받지 않아요</td></tr>
+        <tr><th>정보를 쓰는 곳</th><td>회원 구분(식별 번호)과 내 정보 화면의 인사말(별명)에만 써요. 광고·마케팅에 쓰지 않아요</td></tr>
+        <tr><th>가입 나이</th><td>만 14세 이상만 가입할 수 있어요(로그인 단추 위 확인 칸)</td></tr>
+        <tr><th>탈퇴</th><td>내 정보 › 계정 삭제를 누르면 계정과 찜이 바로 지워지고, 네이버·카카오 연결도 함께 끊어요</td></tr>
+        <tr><th>위치</th><td>지도 가운데를 정하는 데만 폰 안에서 쓰고, 서버로 보내지 않아요</td></tr>
+      </table>
+      <p style="margin-top:14px"><a href="https://storage.googleapis.com/culturepick-app-data/privacy.html">개인정보처리방침 전문</a> · <a href="https://storage.googleapis.com/culturepick-app-data/delete.html">계정 삭제 안내</a></p>
+    </div>
+    <div class="shots">
+      <figure style="margin:0"><div class="shot"><img src="img/로그인_단추_화면.jpg" alt="내 정보 메뉴의 로그인 화면" loading="lazy"></div><figcaption style="font-size:13px;color:var(--sub);margin-top:6px">내 정보 메뉴: 만 14세 확인 후 카카오·네이버 로그인</figcaption></figure>
+      <figure style="margin:0"><div class="shot"><img src="img/동의_화면.jpg" alt="네이버 로그인 동의 화면" loading="lazy"></div><figcaption style="font-size:13px;color:var(--sub);margin-top:6px">네이버 동의 화면: 이용자 식별자·별명만 요청</figcaption></figure>
+    </div>
+  </div>
+</div></section>
+
+<section id="rules"><div class="wrap">
+  <h2>운영 원칙</h2>
+  <div class="two">
+    <ul class="plain">
+      <li>기관이 <b>누구나 볼 수 있게 공개한 정보</b>만 모으고, 강좌마다 출처와 원문 링크를 함께 보여 줘요.</li>
+      <li>기관 누리집에는 사람이 보는 속도로, 하루에 정해진 횟수만 접속해요. 수집을 거절한 곳은 받지 않아요.</li>
+      <li>자리·날짜는 모은 뒤 바뀔 수 있어서, 신청 전에 기관 화면을 한 번 더 확인하도록 안내해요.</li>
+      <li>축제 정보는 한국관광공사 관광정보(TourAPI)를 쓰고, 사진에 출처를 적어요.</li>
+    </ul>
+    <p class="note">기관별 자료 출처 전체 목록은 <a href="https://storage.googleapis.com/culturepick-app-data/sources.html">자료 출처 페이지</a>에서 볼 수 있어요. 정보가 틀렸거나 빼 달라는 요청은 아래 메일로 보내 주세요.</p>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <h2>문의</h2>
+  <table style="max-width:560px">
+    <tr><th>운영</th><td>컬처픽 (개인 개발)</td></tr>
+    <tr><th>메일</th><td>ys_jung86@naver.com</td></tr>
+  </table>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div class="links"><a href="https://storage.googleapis.com/culturepick-app-data/privacy.html">개인정보처리방침</a><a href="https://storage.googleapis.com/culturepick-app-data/delete.html">계정 삭제 안내</a><a href="https://storage.googleapis.com/culturepick-app-data/sources.html">자료 출처</a></div>
+  © 2026 컬처픽 · 강좌 정보는 각 기관, 축제 정보는 한국관광공사 관광정보(TourAPI)에서 받아요.
+</div></footer>
+</body>
+</html>
