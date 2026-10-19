@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CulturePick — Local classes and festivals in Korea</title>
+<meta name="description" content="CulturePick gathers public classes from community centers, libraries, sports centers and culture centers, plus exhibitions and festivals across Korea, on one map.">
+<meta property="og:title" content="CulturePick — Local classes and festivals in Korea">
+<meta property="og:description" content="Find public, library and culture-center classes and festivals in Korea on one map">
+<meta property="og:image" content="https://culturepick.co.kr/img/icon.png">
+<link rel="icon" href="/img/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;600;700&display=swap">
+<style>
+/* 컬처픽 소개 — 앱과 같은 옷(보라 하나 · 흰 바탕 · IBM Plex Sans KR) */
+:root{--purple:#7a2cff;--deep:#5a1fd1;--navy:#161b66;--soft:#f3eeff;--ink:#1c1830;--sub:#6d6880;--line:#ece9f2;--page:#ffffff;--card:#f7f6fa;
+  --f:"IBM Plex Sans KR","Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif}
+@media (prefers-color-scheme:dark){:root{--soft:#251a3f;--ink:#eeeaf7;--sub:#a8a2bb;--line:#2b2640;--page:#14111d;--card:#1d1929;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--ink);font:16px/1.7 var(--f);-webkit-font-smoothing:antialiased}
+a{color:var(--purple)} img{max-width:100%;height:auto;display:block}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left));padding-right:max(18px,env(safe-area-inset-right))}
+header{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--page) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;gap:12px;height:60px}
+header .brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:18px;color:var(--ink);text-decoration:none}
+header .brand img{width:32px;height:32px;border-radius:9px}
+header nav{margin-left:auto;display:flex;gap:16px;font-size:14px}
+header nav a{color:var(--sub);text-decoration:none} header nav a:hover{color:var(--purple)}
+@media (max-width:640px){header nav{display:none}}
+.hero{padding-block:56px 40px;display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
+.kicker{display:inline-block;font-size:13px;font-weight:700;color:var(--deep);background:var(--soft);padding:5px 11px;border-radius:999px}
+h1{font-size:clamp(30px,5vw,46px);line-height:1.22;margin:14px 0 14px;letter-spacing:-.02em;text-wrap:balance}
+h1 em{font-style:normal;color:var(--purple)}
+.lead{font-size:18px;color:var(--sub);margin:0 0 22px;max-width:34em}
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;list-style:none}
+.facts li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:9px 13px;font-size:14px}
+.facts b{color:var(--purple);font-variant-numeric:tabular-nums}
+.status{margin-top:18px;font-size:14px;color:var(--sub)}
+.phone{border-radius:28px;overflow:hidden;border:8px solid #1c1830;box-shadow:0 18px 40px rgba(28,24,48,.18);max-width:300px;margin-inline:auto;background:#fff}
+@media (max-width:760px){.hero{grid-template-columns:1fr;padding-block:36px 24px}}
+section{padding-block:44px;border-top:1px solid var(--line)}
+h2{font-size:clamp(24px,3.4vw,30px);margin:0 0 8px;letter-spacing:-.01em}
+.sub{color:var(--sub);margin:0 0 26px;max-width:40em}
+.menus{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media (max-width:860px){.menus{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.menus{grid-template-columns:1fr}}
+.menu{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:12px}
+.menu img{border-radius:14px;border:1px solid var(--line);aspect-ratio:9/16;object-fit:cover;object-position:top;width:100%}
+.menu h3{margin:0;font-size:17px} .menu p{margin:0;font-size:14.5px;color:var(--sub)}
+.menu .n{font-size:12px;font-weight:700;color:var(--purple)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{width:34%;color:var(--sub);font-weight:600}
+.shot{border-radius:14px;border:1px solid var(--line);overflow:hidden;background:#fff}
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.note{background:var(--soft);border-radius:14px;padding:14px 16px;font-size:14.5px}
+ul.plain{margin:0;padding-left:20px} ul.plain li{margin:6px 0}
+footer{border-top:1px solid var(--line);padding-block:30px 44px;color:var(--sub);font-size:14px}
+footer .links{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:10px}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="brand" href="/en/"><img src="/img/icon.png" alt="">CulturePick</a>
+  <nav><a href="#menus">Screens</a><a href="#login">Sign-in &amp; privacy</a><a href="#rules">Principles</a><a href="#contact">Contact</a><a href="/">한국어</a></nav>
+</div></header>
+
+<main>
+<div class="wrap hero">
+  <div>
+    <span class="kicker">Classes &amp; festivals map</span>
+    <h1>Local <em>classes and festivals</em><br>on one map</h1>
+    <p class="lead">Every day we gather classes published by community centers, lifelong learning centers, sports centers, libraries and department store culture centers, plus exhibitions and festivals across Korea, and show them on a map. Save the classes you like and get an alert when sign-up opens.</p>
+    <ul class="facts">
+      <li><b>50,000+</b> classes</li>
+      <li><b>4,899</b> places</li>
+      <li><b>171</b> festivals</li>
+      <li>Updated every morning</li>
+    </ul>
+    <p class="status">Numbers as of October 2026. The Android app is preparing for a closed test on Google Play, and an iPhone app is in the works. The app can be used in English; class names stay in Korean as published.</p>
+  </div>
+  <div class="phone"><img src="/img/지도.jpg" alt="CulturePick map with nearby classes" width="540" height="960"></div>
+</div>
+
+<section id="what"><div class="wrap">
+  <h2>What CulturePick is</h2>
+  <p class="sub">An <b>information app</b> that brings scattered public and private class listings into one place. CulturePick does not handle sign-ups or payments; it links you to each organization’s website.</p>
+  <div class="two">
+    <table>
+      <tr><th>Service</th><td>Search and map guide for classes and cultural events (free)</td></tr>
+      <tr><th>Information</th><td>Class listings organizations publish for everyone (name, audience, days, time, fee, sign-up period, seats left), exhibitions, and Korea Tourism Organization festival data</td></tr>
+      <tr><th>Sign-up &amp; payment</th><td>Not handled by us. Tapping [Sign up] opens the organization’s website</td></tr>
+      <tr><th>Account</th><td>Not required. Sign in only if you want to keep saved items and alerts across phones</td></tr>
+      <tr><th>Revenue</th><td>A banner ad at the bottom of the app (Google AdMob). No paid features or gambling</td></tr>
+    </table>
+    <div class="note"><b>Made for</b>
+      <ul class="plain">
+        <li>Workers looking for yoga or swimming near home after work</li>
+        <li>Parents looking for weekend programs to enjoy with kids</li>
+        <li>Adult children finding senior classes near their parents’ home</li>
+        <li>Anyone looking for a festival this weekend</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section id="menus"><div class="wrap">
+  <h2>Screens</h2>
+  <p class="sub">The app has four menus at the bottom: <b>Map · Events · Saved · Me</b>. These are real app screens (shown in Korean).</p>
+  <div class="menus">
+    <article class="menu"><span class="n">Map</span><img src="/img/지도.jpg" alt="Map" loading="lazy"><h3>Find on the map</h3><p>Places near you appear as bubbles. The number is how many classes are open for sign-up now. Filter by open now, culture centers, museums, libraries and festivals.</p></article>
+    <article class="menu"><span class="n">Map › Place</span><img src="/img/센터.jpg" alt="Place class list" loading="lazy"><h3>Classes by place</h3><p>Tap a bubble to see its classes: open now, opening soon, then ongoing. Call, directions and website buttons included.</p></article>
+    <article class="menu"><span class="n">Map › Class</span><img src="/img/강좌상세.jpg" alt="Class details" loading="lazy"><h3>Class details</h3><p>Audience, days, time, fee, sign-up period, seats left and the source. [Sign up] takes you to the organization’s page.</p></article>
+    <article class="menu"><span class="n">Map › Filters</span><img src="/img/아이와함께.jpg" alt="With kids filter" loading="lazy"><h3>Filter by situation</h3><p>This weekend, with kids, after work or seniors — see only the classes that fit.</p></article>
+    <article class="menu"><span class="n">Events</span><img src="/img/축제.jpg" alt="Festivals" loading="lazy"><h3>Festivals across Korea</h3><p>See ongoing, this-weekend and free festivals by date or distance. Finished festivals drop off automatically.</p></article>
+    <article class="menu"><span class="n">Saved</span><img src="/img/찜.jpg" alt="Saved" loading="lazy"><h3>Saved &amp; sign-up alerts</h3><p>Hearted classes and festivals gather here. Turn on an alert to be reminded at 8 pm the day before and about 30 minutes before sign-up opens. Saved on your phone without an account.</p></article>
+  </div>
+</div></section>
+
+<section id="login"><div class="wrap">
+  <h2>Sign-in &amp; privacy</h2>
+  <p class="sub">Sign-in is <b>optional</b>. Map, search, saved items and alerts all work without it.</p>
+  <div class="two">
+    <div>
+      <table>
+        <tr><th>Sign-in</th><td>Kakao or NAVER (Me menu)</td></tr>
+        <tr><th>Why sign in</th><td>To keep saved items, alerts and parents’ neighborhoods when you change phones or reinstall</td></tr>
+        <tr><th>Data from NAVER</th><td>Only the <b>member ID and nickname</b>. No name, phone, email or birthday</td></tr>
+        <tr><th>Used for</th><td>Telling members apart (ID) and the greeting on the Me screen (nickname). Never for ads or marketing</td></tr>
+        <tr><th>Age</th><td>14 or older (checkbox above the sign-in buttons)</td></tr>
+        <tr><th>Delete</th><td>Me › Delete account removes your account and saved items right away and disconnects NAVER or Kakao</td></tr>
+        <tr><th>Location</th><td>Used only on your phone, never sent to a server</td></tr>
+      </table>
+      <p style="margin-top:14px"><a href="/en/privacy.html">Full privacy policy</a> · <a href="/delete.html">Account deletion (Korean)</a></p>
+    </div>
+    <div class="shots">
+      <figure style="margin:0"><div class="shot"><img src="/img/로그인_단추_화면.jpg" alt="Sign-in screen" loading="lazy"></div><figcaption style="font-size:13px;color:var(--sub);margin-top:6px">Me menu: confirm age 14+, then Kakao or NAVER</figcaption></figure>
+      <figure style="margin:0"><div class="shot"><img src="/img/동의_화면.jpg" alt="NAVER consent screen" loading="lazy"></div><figcaption style="font-size:13px;color:var(--sub);margin-top:6px">NAVER consent: only member ID and nickname</figcaption></figure>
+    </div>
+  </div>
+</div></section>
+
+<section id="rules"><div class="wrap">
+  <h2>Principles</h2>
+  <div class="two">
+    <ul class="plain">
+      <li>We collect only <b>information organizations publish for everyone</b>, and show the source and original link for every class.</li>
+      <li>We visit websites at human speed, a limited number of times a day, and skip sites that refuse collection.</li>
+      <li>Seats and dates can change after collection, so we ask you to double-check on the organization’s page.</li>
+      <li>Festival data comes from Korea Tourism Organization (TourAPI), with photo credits.</li>
+    </ul>
+    <p class="note">The full source list is on the <a href="/sources.html">sources page</a> (Korean). To report an error or ask us to remove information, email us below.</p>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <h2>Contact</h2>
+  <table style="max-width:560px">
+    <tr><th>Operator</th><td>CulturePick (independent developer)</td></tr>
+    <tr><th>Email</th><td>ys_jung86@naver.com</td></tr>
+  </table>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div class="links"><a href="/en/privacy.html">Privacy policy</a><a href="/delete.html">Account deletion</a><a href="/sources.html">Sources</a><a href="/">한국어</a></div>
+  © 2026 CulturePick · Class information from each organization, festival information from Korea Tourism Organization (TourAPI).
+</div></footer>
+</body>
+</html>
