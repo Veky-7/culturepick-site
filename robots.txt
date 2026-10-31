@@ -3,3 +3,4 @@ Allow: /
 
 Sitemap: https://culturepick.co.kr/sitemap.xml
 Sitemap: https://culturepick.co.kr/sitemap-r.xml
+Sitemap: https://culturepick.co.kr/sitemap-c.xml
