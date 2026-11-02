@@ -5,3 +5,4 @@ Sitemap: https://culturepick.co.kr/sitemap.xml
 Sitemap: https://culturepick.co.kr/sitemap-r.xml
 Sitemap: https://culturepick.co.kr/sitemap-c.xml
 Sitemap: https://culturepick.co.kr/sitemap-f.xml
+Sitemap: https://culturepick.co.kr/sitemap-s.xml
